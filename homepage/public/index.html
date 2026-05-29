@@ -1,211 +1,596 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="theme-color" content="#0E0E12" />
-<title>Perch — one link for everything you do</title>
-<meta name="description" content="Perch is the free, beautiful link-in-bio. Build a stunning page in 60 seconds and put all your links in one place." />
-<meta property="og:title" content="Perch — one link for everything you do" />
-<meta property="og:description" content="The free, beautiful link-in-bio." />
-<link rel="icon" type="image/svg+xml" href="/logo.svg" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Space+Mono:wght@400;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#0E0E12; --card:#1a1a22; --line:#2a2a35; --text:#f4f3f7; --muted:#9a99a8;
-    --accent:#FF6B4A; --accent-2:#FF2D75; --grad:linear-gradient(135deg,#FF6B4A,#FF2D75);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    background:var(--bg);color:var(--text);font-family:'Manrope',system-ui,sans-serif;
-    -webkit-font-smoothing:antialiased;overflow-x:hidden;
-    background-image:
-      radial-gradient(1000px 600px at 88% -8%, rgba(255,45,117,.16), transparent 60%),
-      radial-gradient(800px 600px at -5% 5%, rgba(255,107,74,.12), transparent 55%);
-  }
-  a{color:inherit;text-decoration:none}
-  .display{font-family:'Fraunces',serif;letter-spacing:-.025em}
-  .mono{font-family:'Space Mono',monospace}
-  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0E0E12" />
+    <title>Perch — one link for everything you do</title>
+    <meta
+      name="description"
+      content="Perch is the free, beautiful link-in-bio. Build a stunning page in 60 seconds and put all your links in one place."
+    />
+    <meta
+      property="og:title"
+      content="Perch — one link for everything you do"
+    />
+    <meta
+      property="og:description"
+      content="The free, beautiful link-in-bio."
+    />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Space+Mono:wght@400;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0e0e12;
+        --card: #1a1a22;
+        --line: #2a2a35;
+        --text: #f4f3f7;
+        --muted: #9a99a8;
+        --accent: #ff6b4a;
+        --accent-2: #ff2d75;
+        --grad: linear-gradient(135deg, #ff6b4a, #ff2d75);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Manrope", system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+        background-image:
+          radial-gradient(
+            1000px 600px at 88% -8%,
+            rgba(255, 45, 117, 0.16),
+            transparent 60%
+          ),
+          radial-gradient(
+            800px 600px at -5% 5%,
+            rgba(255, 107, 74, 0.12),
+            transparent 55%
+          );
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .display {
+        font-family: "Fraunces", serif;
+        letter-spacing: -0.025em;
+      }
+      .mono {
+        font-family: "Space Mono", monospace;
+      }
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
 
-  /* nav */
-  nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;
-    position:sticky;top:0;background:rgba(14,14,18,.7);backdrop-filter:blur(14px);z-index:30}
-  .brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px}
-  .brand img{width:34px;height:34px;border-radius:10px}
-  .nav-links{display:flex;align-items:center;gap:8px}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:12px;
-    border:1px solid var(--line);background:var(--card);color:var(--text);font-weight:700;
-    cursor:pointer;transition:transform .12s,border-color .12s}
-  .btn:hover{transform:translateY(-2px)}
-  .btn.primary{background:var(--grad);border:none;color:#fff;box-shadow:0 10px 30px rgba(255,45,117,.35)}
-  .btn.ghost{background:transparent}
+      /* nav */
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0;
+        position: sticky;
+        top: 0;
+        background: rgba(14, 14, 18, 0.7);
+        backdrop-filter: blur(14px);
+        z-index: 30;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        font-weight: 800;
+        font-size: 19px;
+      }
+      .brand img {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 20px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: var(--card);
+        color: var(--text);
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          transform 0.12s,
+          border-color 0.12s;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn.primary {
+        background: var(--grad);
+        border: none;
+        color: #fff;
+        box-shadow: 0 10px 30px rgba(255, 45, 117, 0.35);
+      }
+      .btn.ghost {
+        background: transparent;
+      }
 
-  /* hero */
-  .hero{padding:70px 0 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
-  .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-    color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:6px 14px;margin-bottom:22px}
-  h1.hero-title{font-size:clamp(40px,6.5vw,76px);font-weight:900;line-height:.98}
-  h1.hero-title .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .hero p.sub{font-size:19px;color:var(--muted);margin:22px 0 30px;max-width:520px;line-height:1.55}
-  .cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-  .hero-note{font-size:13px;color:var(--muted);margin-top:16px}
+      /* hero */
+      .hero {
+        padding: 70px 0 40px;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 50px;
+        align-items: center;
+      }
+      .eyebrow {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 6px 14px;
+        margin-bottom: 22px;
+      }
+      h1.hero-title {
+        font-size: clamp(40px, 6.5vw, 76px);
+        font-weight: 900;
+        line-height: 0.98;
+      }
+      h1.hero-title .grad {
+        background: var(--grad);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .hero p.sub {
+        font-size: 19px;
+        color: var(--muted);
+        margin: 22px 0 30px;
+        max-width: 520px;
+        line-height: 1.55;
+      }
+      .cta-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .hero-note {
+        font-size: 13px;
+        color: var(--muted);
+        margin-top: 16px;
+      }
 
-  /* phone mock */
-  .mock{justify-self:center;width:300px;border:1px solid var(--line);border-radius:38px;padding:14px;
-    background:#0b0b0f;box-shadow:0 40px 80px rgba(0,0,0,.55);transform:rotate(2deg);
-    animation:float 6s ease-in-out infinite}
-  @keyframes float{0%,100%{transform:rotate(2deg) translateY(0)}50%{transform:rotate(2deg) translateY(-12px)}}
-  .mock .scr{background:linear-gradient(160deg,#2a0f1f,#3a1410);border-radius:28px;padding:30px 20px;text-align:center;color:#fff}
-  .mock .av{width:72px;height:72px;border-radius:50%;margin:0 auto 12px;background:var(--grad)}
-  .mock .nm{font-weight:800;font-size:18px}
-  .mock .bi{font-size:13px;opacity:.85;margin:4px 0 18px}
-  .mock .lk{display:block;padding:13px;border-radius:12px;margin-bottom:11px;font-weight:700;
-    background:rgba(255,255,255,.14)}
+      /* phone mock */
+      .mock {
+        justify-self: center;
+        width: 300px;
+        border: 1px solid var(--line);
+        border-radius: 38px;
+        padding: 14px;
+        background: #0b0b0f;
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.55);
+        transform: rotate(2deg);
+        animation: float 6s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: rotate(2deg) translateY(0);
+        }
+        50% {
+          transform: rotate(2deg) translateY(-12px);
+        }
+      }
+      .mock .scr {
+        background: linear-gradient(160deg, #2a0f1f, #3a1410);
+        border-radius: 28px;
+        padding: 30px 20px;
+        text-align: center;
+        color: #fff;
+      }
+      .mock .av {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        margin: 0 auto 12px;
+        background: var(--grad);
+      }
+      .mock .nm {
+        font-weight: 800;
+        font-size: 18px;
+      }
+      .mock .bi {
+        font-size: 13px;
+        opacity: 0.85;
+        margin: 4px 0 18px;
+      }
+      .mock .lk {
+        display: block;
+        padding: 13px;
+        border-radius: 12px;
+        margin-bottom: 11px;
+        font-weight: 700;
+        background: rgba(255, 255, 255, 0.14);
+      }
 
-  /* social proof strip */
-  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;margin-top:30px}
-  .strip .wrap{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;color:var(--muted);font-weight:700}
-  .strip b{color:var(--text);font-size:22px;display:block}
+      /* social proof strip */
+      .strip {
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: 26px 0;
+        margin-top: 30px;
+      }
+      .strip .wrap {
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-weight: 700;
+      }
+      .strip b {
+        color: var(--text);
+        font-size: 22px;
+        display: block;
+      }
 
-  /* features */
-  section.feat{padding:90px 0}
-  .sec-head{text-align:center;max-width:640px;margin:0 auto 50px}
-  .sec-head h2{font-size:clamp(30px,4vw,46px);font-weight:900;line-height:1.05}
-  .sec-head p{color:var(--muted);margin-top:14px;font-size:18px}
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .fcard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;
-    transition:transform .15s,border-color .15s}
-  .fcard:hover{transform:translateY(-4px);border-color:#3a3a48}
-  .fcard .ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;font-size:22px;
-    background:rgba(255,107,74,.14);margin-bottom:16px}
-  .fcard h3{font-size:19px;margin-bottom:8px}
-  .fcard p{color:var(--muted);line-height:1.55;font-size:15px}
+      /* features */
+      section.feat {
+        padding: 90px 0;
+      }
+      .sec-head {
+        text-align: center;
+        max-width: 640px;
+        margin: 0 auto 50px;
+      }
+      .sec-head h2 {
+        font-size: clamp(30px, 4vw, 46px);
+        font-weight: 900;
+        line-height: 1.05;
+      }
+      .sec-head p {
+        color: var(--muted);
+        margin-top: 14px;
+        font-size: 18px;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .fcard {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 26px;
+        transition:
+          transform 0.15s,
+          border-color 0.15s;
+      }
+      .fcard:hover {
+        transform: translateY(-4px);
+        border-color: #3a3a48;
+      }
+      .fcard .ic {
+        width: 46px;
+        height: 46px;
+        border-radius: 13px;
+        display: grid;
+        place-items: center;
+        font-size: 22px;
+        background: rgba(255, 107, 74, 0.14);
+        margin-bottom: 16px;
+      }
+      .fcard h3 {
+        font-size: 19px;
+        margin-bottom: 8px;
+      }
+      .fcard p {
+        color: var(--muted);
+        line-height: 1.55;
+        font-size: 15px;
+      }
 
-  /* steps */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .step{padding:26px;border:1px dashed var(--line);border-radius:20px}
-  .step .no{font-family:'Fraunces',serif;font-size:46px;font-weight:900;
-    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+      /* steps */
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .step {
+        padding: 26px;
+        border: 1px dashed var(--line);
+        border-radius: 20px;
+      }
+      .step .no {
+        font-family: "Fraunces", serif;
+        font-size: 46px;
+        font-weight: 900;
+        background: var(--grad);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
 
-  /* cta band */
-  .band{margin:40px 0 90px;border-radius:28px;padding:64px 30px;text-align:center;
-    background:var(--grad);position:relative;overflow:hidden}
-  .band h2{font-size:clamp(30px,4.5vw,52px);font-weight:900;color:#fff;line-height:1.02}
-  .band p{color:rgba(255,255,255,.9);margin:16px auto 28px;max-width:480px;font-size:18px}
-  .band .btn{background:#0E0E12;color:#fff;padding:15px 30px;font-size:17px}
+      /* cta band */
+      .band {
+        margin: 40px 0 90px;
+        border-radius: 28px;
+        padding: 64px 30px;
+        text-align: center;
+        background: var(--grad);
+        position: relative;
+        overflow: hidden;
+      }
+      .band h2 {
+        font-size: clamp(30px, 4.5vw, 52px);
+        font-weight: 900;
+        color: #fff;
+        line-height: 1.02;
+      }
+      .band p {
+        color: rgba(255, 255, 255, 0.9);
+        margin: 16px auto 28px;
+        max-width: 480px;
+        font-size: 18px;
+      }
+      .band .btn {
+        background: #0e0e12;
+        color: #fff;
+        padding: 15px 30px;
+        font-size: 17px;
+      }
 
-  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:14px}
-  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 40px 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      footer .wrap {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
 
-  @media(max-width:860px){
-    .hero{grid-template-columns:1fr;text-align:center;padding-top:40px}
-    .hero p.sub{margin-left:auto;margin-right:auto}
-    .cta-row{justify-content:center}
-    .cards,.steps{grid-template-columns:1fr}
-    .nav-links .hidem{display:none}
-    .mock{transform:rotate(0)}
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-  }
-</style>
-</head>
-<body>
-<div class="wrap">
-  <nav>
-    <a class="brand" href="/"><img src="/logo.svg" alt="Perch logo" /> Perch</a>
-    <div class="nav-links">
-      <a class="btn ghost hidem" href="#features">Features</a>
-      <a class="btn ghost hidem" href="#how">How it works</a>
-      <a class="btn primary" id="cta-nav" href="#">Get started free</a>
+      @media (max-width: 860px) {
+        .hero {
+          grid-template-columns: 1fr;
+          text-align: center;
+          padding-top: 40px;
+        }
+        .hero p.sub {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .cta-row {
+          justify-content: center;
+        }
+        .cards,
+        .steps {
+          grid-template-columns: 1fr;
+        }
+        .nav-links .hidem {
+          display: none;
+        }
+        .mock {
+          transform: rotate(0);
+        }
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-12px);
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="/"
+          ><img src="/logo.svg" alt="Perch logo" /> Perch</a
+        >
+        <div class="nav-links">
+          <a class="btn ghost hidem" href="#features">Features</a>
+          <a class="btn ghost hidem" href="#how">How it works</a>
+          <a class="btn primary" id="cta-nav" href="#">Get started free</a>
+        </div>
+      </nav>
+
+      <header class="hero">
+        <div>
+          <span class="eyebrow">🐦 Free forever</span>
+          <h1 class="hero-title display">
+            One link for <span class="grad">everything</span> you do.
+          </h1>
+          <p class="sub">
+            Perch turns your scattered links into one beautiful page. Share it
+            on every profile — and watch every visit flow to the things that
+            matter.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" id="cta-hero" href="#">Claim your link →</a>
+            <a class="btn ghost" href="#how">See how it works</a>
+          </div>
+          <p class="hero-note">
+            No credit card. Live in 60 seconds. Works on every device.
+          </p>
+        </div>
+        <div class="mock" aria-hidden="true">
+          <div class="scr">
+            <div class="av"></div>
+            <div class="nm">@yourname</div>
+            <div class="bi">designer · maker · coffee enthusiast</div>
+            <span class="lk">Latest project ↗</span>
+            <span class="lk">Newsletter</span>
+            <span class="lk">Say hello</span>
+            <div style="margin-top: 18px; font-size: 11px; opacity: 0.6">
+              made with Perch 🐦
+            </div>
+          </div>
+        </div>
+      </header>
     </div>
-  </nav>
 
-  <header class="hero">
-    <div>
-      <span class="eyebrow">🐦 Free forever</span>
-      <h1 class="hero-title display">One link for <span class="grad">everything</span> you do.</h1>
-      <p class="sub">Perch turns your scattered links into one beautiful page. Share it on every profile — and watch every visit flow to the things that matter.</p>
-      <div class="cta-row">
-        <a class="btn primary" id="cta-hero" href="#">Claim your link →</a>
-        <a class="btn ghost" href="#how">See how it works</a>
+    <div class="strip">
+      <div class="wrap">
+        <div><b>60 sec</b> to launch</div>
+        <div><b>$0</b> forever</div>
+        <div><b>4</b> gorgeous themes</div>
+        <div><b>Live</b> click analytics</div>
       </div>
-      <p class="hero-note">No credit card. Live in 60 seconds. Works on every device.</p>
     </div>
-    <div class="mock" aria-hidden="true">
-      <div class="scr">
-        <div class="av"></div>
-        <div class="nm">@yourname</div>
-        <div class="bi">designer · maker · coffee enthusiast</div>
-        <span class="lk">Latest project ↗</span>
-        <span class="lk">Newsletter</span>
-        <span class="lk">Say hello</span>
-        <div style="margin-top:18px;font-size:11px;opacity:.6">made with Perch 🐦</div>
+
+    <div class="wrap">
+      <section class="feat" id="features">
+        <div class="sec-head">
+          <h2 class="display">Small page. Big presence.</h2>
+          <p>
+            Everything you need to point an audience exactly where you want
+            them.
+          </p>
+        </div>
+        <div class="cards">
+          <div class="fcard">
+            <div class="ic">🎨</div>
+            <h3>Themes that pop</h3>
+            <p>
+              Sunset, midnight, mint or mono. Switch the whole vibe with one tap
+              — no design skills needed.
+            </p>
+          </div>
+          <div class="fcard">
+            <div class="ic">📊</div>
+            <h3>Know what works</h3>
+            <p>
+              Real-time views and per-link clicks, so you can double down on
+              what your audience actually taps.
+            </p>
+          </div>
+          <div class="fcard">
+            <div class="ic">⚡</div>
+            <h3>Stupidly fast</h3>
+            <p>
+              Your page loads instantly anywhere in the world. Reorder links
+              with a tap, changes go live immediately.
+            </p>
+          </div>
+          <div class="fcard">
+            <div class="ic">📱</div>
+            <h3>Made for mobile</h3>
+            <p>
+              Looks immaculate on the phone where 90% of your audience will open
+              it — and just as sharp on desktop.
+            </p>
+          </div>
+          <div class="fcard">
+            <div class="ic">🔗</div>
+            <h3>Unlimited links</h3>
+            <p>
+              Drop in your shop, socials, latest drop, booking form — as many as
+              you like, all free.
+            </p>
+          </div>
+          <div class="fcard">
+            <div class="ic">🐦</div>
+            <h3>Grows itself</h3>
+            <p>
+              Every Perch page invites visitors to make their own. Your audience
+              becomes our best marketing.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="feat" id="how" style="padding-top: 0">
+        <div class="sec-head">
+          <h2 class="display">Live in three taps.</h2>
+          <p>Seriously, this is the whole onboarding.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="no">01</div>
+            <h3 style="margin: 8px 0">Sign up free</h3>
+            <p class="mono" style="color: var(--muted); font-size: 14px">
+              Email + password. You get a page instantly.
+            </p>
+          </div>
+          <div class="step">
+            <div class="no">02</div>
+            <h3 style="margin: 8px 0">Add your links</h3>
+            <p class="mono" style="color: var(--muted); font-size: 14px">
+              Title, bio, theme, and every link you want.
+            </p>
+          </div>
+          <div class="step">
+            <div class="no">03</div>
+            <h3 style="margin: 8px 0">Share it everywhere</h3>
+            <p class="mono" style="color: var(--muted); font-size: 14px">
+              Drop your perch.link in every bio. Done.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="band">
+        <h2 class="display">Your link is waiting.</h2>
+        <p>
+          Join the makers, creators and shops who put everything in one place.
+        </p>
+        <a class="btn" id="cta-band" href="#">Build my Perch — free →</a>
       </div>
     </div>
-  </header>
-</div>
 
-<div class="strip">
-  <div class="wrap">
-    <div><b>60 sec</b> to launch</div>
-    <div><b>$0</b> forever</div>
-    <div><b>4</b> gorgeous themes</div>
-    <div><b>Live</b> click analytics</div>
-  </div>
-</div>
+    <footer>
+      <div class="wrap">
+        <div class="brand"><img src="/logo.svg" width="26" alt="" /> Perch</div>
+        <div>
+          © <span id="yr"></span> Perch. Made with Claude. All links lead home.
+        </div>
+      </div>
+    </footer>
 
-<div class="wrap">
-  <section class="feat" id="features">
-    <div class="sec-head">
-      <h2 class="display">Small page. Big presence.</h2>
-      <p>Everything you need to point an audience exactly where you want them.</p>
-    </div>
-    <div class="cards">
-      <div class="fcard"><div class="ic">🎨</div><h3>Themes that pop</h3><p>Sunset, midnight, mint or mono. Switch the whole vibe with one tap — no design skills needed.</p></div>
-      <div class="fcard"><div class="ic">📊</div><h3>Know what works</h3><p>Real-time views and per-link clicks, so you can double down on what your audience actually taps.</p></div>
-      <div class="fcard"><div class="ic">⚡</div><h3>Stupidly fast</h3><p>Your page loads instantly anywhere in the world. Reorder links with a tap, changes go live immediately.</p></div>
-      <div class="fcard"><div class="ic">📱</div><h3>Made for mobile</h3><p>Looks immaculate on the phone where 90% of your audience will open it — and just as sharp on desktop.</p></div>
-      <div class="fcard"><div class="ic">🔗</div><h3>Unlimited links</h3><p>Drop in your shop, socials, latest drop, booking form — as many as you like, all free.</p></div>
-      <div class="fcard"><div class="ic">🐦</div><h3>Grows itself</h3><p>Every Perch page invites visitors to make their own. Your audience becomes our best marketing.</p></div>
-    </div>
-  </section>
-
-  <section class="feat" id="how" style="padding-top:0">
-    <div class="sec-head">
-      <h2 class="display">Live in three taps.</h2>
-      <p>Seriously, this is the whole onboarding.</p>
-    </div>
-    <div class="steps">
-      <div class="step"><div class="no">01</div><h3 style="margin:8px 0">Sign up free</h3><p class="mono" style="color:var(--muted);font-size:14px">Email + password. You get a page instantly.</p></div>
-      <div class="step"><div class="no">02</div><h3 style="margin:8px 0">Add your links</h3><p class="mono" style="color:var(--muted);font-size:14px">Title, bio, theme, and every link you want.</p></div>
-      <div class="step"><div class="no">03</div><h3 style="margin:8px 0">Share it everywhere</h3><p class="mono" style="color:var(--muted);font-size:14px">Drop your perch.link in every bio. Done.</p></div>
-    </div>
-  </section>
-
-  <div class="band">
-    <h2 class="display">Your link is waiting.</h2>
-    <p>Join the makers, creators and shops who put everything in one place.</p>
-    <a class="btn" id="cta-band" href="#">Build my Perch — free →</a>
-  </div>
-</div>
-
-<footer>
-  <div class="wrap">
-    <div class="brand"><img src="/logo.svg" width="26" alt="" /> Perch</div>
-    <div>© <span id="yr"></span> Perch. Made with Claude. All links lead home.</div>
-  </div>
-</footer>
-
-<script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
-  // Point all CTAs at the user app. Replace below after deploy, or set window.PERCH_APP_URL.
-  var APP = (window.PERCH_APP_URL) || "https://app.perch.example";
-  ["cta-nav","cta-hero","cta-band"].forEach(function(id){
-    var el = document.getElementById(id); if(el) el.href = APP;
-  });
-</script>
-</body>
+    <script>
+      document.getElementById("yr").textContent = new Date().getFullYear();
+      // Point all CTAs at the user app. Replace below after deploy, or set window.PERCH_APP_URL.
+      var APP = window.PERCH_APP_URL || "https://perch-roan.vercel.app";
+      ["cta-nav", "cta-hero", "cta-band"].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.href = APP;
+      });
+    </script>
+  </body>
 </html>
